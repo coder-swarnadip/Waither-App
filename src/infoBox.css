@@ -74,3 +74,10 @@ p {
 .card-info p {
     margin: 5px 0;
 }
+
+
+.air{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

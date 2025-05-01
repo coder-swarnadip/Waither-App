@@ -4,15 +4,19 @@ import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import './SearchBox.css';
 
-export default function SearchBox({ updateInfo }) {
+export default function SearchBox({ updateInfo ,updateAqi }) {
   const [city, setCity] = useState("");
   const [error, setError] = useState(false);
 
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
+  const API_URL_2="http://api.openweathermap.org/data/2.5/air_pollution";
   const API_KEY = "2d8d02a590de5a2237cf7d2f35e97442";
+
+  
 
   const getWeatherInfo = async () => {
     const response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
+  
     const data = await response.json();
 
     if (data.cod !== 200) {
@@ -34,6 +38,30 @@ export default function SearchBox({ updateInfo }) {
     return result;
   };
 
+
+  const getAQIInfo = async () => {
+    const response1 = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
+  
+    const data1 = await response1.json();
+    if (data1.cod !== 200) {
+        throw new Error("City not found");
+  
+      }
+  
+   // console.log(data1.coord);
+
+    const response = await fetch(`${API_URL_2}?lat=${data1.coord.lat}&lon=${data1.coord.lon}&appid=${API_KEY}`);
+    const data = await response.json();
+   // console.log(data);
+    const aqi = data.list[0];
+    return aqi;
+
+
+  }
+
+
+
+
   const handleChange = (event) => {
     setCity(event.target.value);
     setError(false); 
@@ -41,9 +69,12 @@ export default function SearchBox({ updateInfo }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
     try {
       const weatherInfo = await getWeatherInfo();
+      const aqiData = await getAQIInfo();
       updateInfo(weatherInfo);
+      updateAqi(aqiData);
       setCity("");
       setError(false); 
     } catch (err) {

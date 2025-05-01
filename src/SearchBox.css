@@ -35,9 +35,7 @@
     font-weight: bold;
   }
   
-  .MuiButton-root:hover {
-    background-color: #004d40;
-  }
+  
   
   /* Alert style */
   @keyframes fadeInOut {
