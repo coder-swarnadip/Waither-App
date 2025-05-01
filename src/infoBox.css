@@ -1,0 +1,76 @@
+/* infoBox.css */
+
+.info-box {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+   
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    
+  
+}
+
+.MuiCard-root {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+
+
+.MuiCardMedia-root {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.MuiTypography-root {
+    color: #333;
+}
+
+.MuiTypography-h5 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #00796b;
+}
+
+.MuiTypography-body2 {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+.MuiCardContent-root {
+    padding: 20px;
+}
+
+.MuiCardActions-root {
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #009688;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.weather-info-icons {
+    font-size: 2rem;
+    color: #00796b;
+}
+
+.weather-info-icons svg {
+    margin-right: 8px;
+}
+
+.card-info p {
+    margin: 5px 0;
+}
