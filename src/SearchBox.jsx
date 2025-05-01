@@ -9,7 +9,7 @@ export default function SearchBox({ updateInfo ,updateAqi }) {
   const [error, setError] = useState(false);
 
   const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-  const API_URL_2="http://api.openweathermap.org/data/2.5/air_pollution";
+  const API_URL_2="https://api.openweathermap.org/data/2.5/air_pollution";
   const API_KEY = "2d8d02a590de5a2237cf7d2f35e97442";
 
   
